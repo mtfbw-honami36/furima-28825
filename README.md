@@ -21,18 +21,18 @@ has_one :purchase
 
 
 ## itemsテーブル
-| Column         | Type    | Options                        |
-| -------------- | ------- | ------------------------------ |
-| images         | string  | null: false                    |
-| items_name     | string  | null: false                    |
-| text           | string  | null: false                    |
-| genre          | string  | null: false                    |
-| item_condition | string  | null: false                    |
-| shipping_cost  | string  | null: false                    |
-| ship_from      | string  | null: false                    |
-| delivery_days  | string  | null: false                    |
-| price          | integer | null: false                    |
-| user_id        | integer | null: false, foreign_key: true |
+| Column            | Type    | Options                        |
+| ----------------- | ------- | ------------------------------ |
+| images            | string  | null: false                    |
+| items_name        | string  | null: false                    |
+| text              | string  | null: false                    |
+| genre_id          | integer | null: false                    |
+| item_condition_id | integer | null: false                    |
+| shipping_cost_id  | integer | null: false                    |
+| ship_from_id      | integer | null: false                    |
+| delivery_days_id  | integer | null: false                    |
+| price             | integer | null: false                    |
+| user_id           | integer | null: false, foreign_key: true |
 
 ### Association
 belongs_to :user
@@ -43,7 +43,7 @@ has_one :purchase
 ## purchasesテーブル
 | Column        | Type    | Options                        |
 | ------------- | ------- | ------------------------------ |
-| PostalCode   | string  | null: false                    |
+| PostalCode    | string  | null: false                    |
 | state         | string  | null: false                    |
 | city          | string  | null: false                    |
 | block_number  | string  | null: false                    |
