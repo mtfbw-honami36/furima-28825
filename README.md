@@ -12,9 +12,7 @@
 | kanji_first_name  | string | null: false |
 | kana_last_name    | string | null: false |
 | kana_first_name   | string | null: false |
-| BirthYear         | date   | null: false |
-| BirthMonth        | date   | null: false |
-| BirthDate         | date   | null: false |
+| BirthDay          | date   | null: false |
 
 ### Association
 has_many :items
