@@ -1,6 +1,6 @@
 # README
 
-#　テーブル設計
+# テーブル設計
 
 ## usersテーブル
 | Column            | Type   | Options     |
@@ -18,6 +18,7 @@
 has_many :items
 has_many :comments
 has_one :purchase
+has_one :address
 
 
 ## itemsテーブル
@@ -40,7 +41,7 @@ has_many :comments
 has_one :purchase
 
 
-## purchasesテーブル
+## Addressesテーブル
 | Column        | Type    | Options                        |
 | ------------- | ------- | ------------------------------ |
 | PostalCode    | string  | null: false                    |
@@ -49,12 +50,22 @@ has_one :purchase
 | block_number  | string  | null: false                    |
 | building_name | string  | null: false                    |
 | PhoneNumber   | integer | null: false                    |
-| item_id       | integer | null: false, foreign_key: true |
 | user_id       | integer | null: false, foreign_key: true |
 
 ### Association
 belongs_to :user
+has_one :purchase
+
+
+## Purchasesテーブル
+| item_id       | integer | null: false, foreign_key: true |
+| user_id       | integer | null: false, foreign_key: true |
+| address_id    | integer | null: false, foreign_key: true |
+
+### Association
+belongs_to :user
 belongs_to :item
+belongs_to :address
 
 
 ## commentsテーブル
