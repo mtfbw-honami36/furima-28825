@@ -24,7 +24,7 @@ has_one :address
 ## itemsテーブル
 | Column            | Type    | Options                        |
 | ----------------- | ------- | ------------------------------ |
-| items_name        | string  | null: false                    |
+| name        | string  | null: false                    |
 | text              | string  | null: false                    |
 | genre_id          | integer | null: false                    |
 | item_condition_id | integer | null: false                    |
