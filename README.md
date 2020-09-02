@@ -48,7 +48,7 @@ has_one :purchase
 | city          | string  | null: false                    |
 | block_number  | string  | null: false                    |
 | building_name | string  |                                |
-| PhoneNumber   | integer | null: false                    |
+| PhoneNumber   | string  | null: false                    |
 | user_id       | integer | null: false, foreign_key: true |
 
 ### Association
