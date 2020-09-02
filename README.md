@@ -50,7 +50,7 @@ has_one :purchase
 | PhoneNumber   | string  | null: false                    |
 
 ### Association
-has_one :purchase
+belongs_to :purchase
 
 
 ## Purchasesテーブル
@@ -60,7 +60,7 @@ has_one :purchase
 ### Association
 belongs_to :user
 belongs_to :item
-belongs_to :address
+has_one :address
 
 
 ## commentsテーブル
