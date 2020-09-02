@@ -23,7 +23,7 @@ has_many :purchases
 ## itemsテーブル
 | Column            | Type    | Options                        |
 | ----------------- | ------- | ------------------------------ |
-| name        | string  | null: false                    |
+| name              | string  | null: false                    |
 | text              | string  | null: false                    |
 | genre_id          | integer | null: false                    |
 | item_condition_id | integer | null: false                    |
