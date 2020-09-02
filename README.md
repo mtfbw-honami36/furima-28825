@@ -47,7 +47,7 @@ has_one :purchase
 | state_id      | integer | null: false                    |
 | city          | string  | null: false                    |
 | block_number  | string  | null: false                    |
-| building_name | string  | null: false                    |
+| building_name | string  |                                |
 | PhoneNumber   | integer | null: false                    |
 | user_id       | integer | null: false, foreign_key: true |
 
