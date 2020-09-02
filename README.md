@@ -18,7 +18,6 @@
 has_many :items
 has_many :comments
 has_many :purchases
-has_one :address
 
 
 ## itemsテーブル
@@ -49,10 +48,8 @@ has_one :purchase
 | block_number  | string  | null: false                    |
 | building_name | string  |                                |
 | PhoneNumber   | string  | null: false                    |
-| user_id       | integer | null: false, foreign_key: true |
 
 ### Association
-belongs_to :user
 has_one :purchase
 
 
