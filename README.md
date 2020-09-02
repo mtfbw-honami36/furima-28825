@@ -44,7 +44,7 @@ has_one :purchase
 | Column        | Type    | Options                        |
 | ------------- | ------- | ------------------------------ |
 | PostalCode    | string  | null: false                    |
-| state         | string  | null: false                    |
+| state_id      | integer | null: false                    |
 | city          | string  | null: false                    |
 | block_number  | string  | null: false                    |
 | building_name | string  | null: false                    |
