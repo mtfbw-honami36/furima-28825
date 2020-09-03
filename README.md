@@ -15,9 +15,9 @@
 | BirthDay          | date   | null: false |
 
 ### Association
-has_many :items
-has_many :comments
-has_many :purchases
+- has_many :items
+- has_many :comments
+- has_many :purchases
 
 
 ## itemsテーブル
@@ -34,9 +34,9 @@ has_many :purchases
 | user_id           | integer | null: false, foreign_key: true |
 
 ### Association
-belongs_to :user
-has_many :comments
-has_one :purchase
+- belongs_to :user
+- has_many :comments
+- has_one :purchase
 
 
 ## Addressesテーブル
@@ -51,17 +51,19 @@ has_one :purchase
 | purchase_id   | integer | null: false, foreign_key: true |
 
 ### Association
-belongs_to :purchase
+- belongs_to :purchase
 
 
 ## Purchasesテーブル
+| Column        | Type    | Options                        |
+| ------------- | ------- | ------------------------------ |
 | item_id       | integer | null: false, foreign_key: true |
 | user_id       | integer | null: false, foreign_key: true |
 
 ### Association
-belongs_to :user
-belongs_to :item
-has_one :address
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 
 ## commentsテーブル
@@ -72,5 +74,5 @@ has_one :address
 | user_id  | integer | null: false, foreign_key: true |
 
 ### Association
-belongs_to :user
-belongs_to :item
+- belongs_to :user
+- belongs_to :item
