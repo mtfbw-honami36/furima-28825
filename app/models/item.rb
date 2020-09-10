@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   
   has_one_attached :image
 
-  validates :name, :text, :price, :genre, :item_condition, :shipping_cost, :ship_from, :delivery_day, presence: true
+  validates :name, :text, :genre, :item_condition, :shipping_cost, :ship_from, :delivery_day, presence: true
   validates :genre_id, :item_condition_id, :shipping_cost_id, :ship_from_id, :delivery_day_id, numericality: { other_than: 1 }
+  validates :price, numericality: { only_integer: true }, length: { is: 300..9,999,999 }
 end
