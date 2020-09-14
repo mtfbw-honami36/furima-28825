@@ -67,8 +67,14 @@ describe Item do
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end
 
-      it '価格が¥300~~9,999,999の間でなければ登録できない' do
+      it '価格が¥300以上でなければ登録できない' do
         @item.price = 200
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Price Out of setting range')
+      end
+
+      it '価格が¥9,999,999以上だと登録できない' do
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
