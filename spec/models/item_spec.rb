@@ -74,7 +74,7 @@ describe Item do
       end
 
       it '価格が¥9,999,999以上だと登録できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price Out of setting range')
       end
