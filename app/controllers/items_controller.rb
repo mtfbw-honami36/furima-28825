@@ -20,12 +20,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @user = User.find(@item.user_id)
-    @genre = Genre.find(@item.genre_id)
-    @item_condition = ItemCondition.find(@item.item_condition_id)
-    @shipping_cost = ShippingCost.find(@item.shipping_cost_id)
-    @ship_from = ShipFrom.find(@item.ship_from_id)
-    @delivery_day = DeliveryDay.find(@item.delivery_day_id)
   end
 
   private
