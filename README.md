@@ -29,9 +29,10 @@
 | item_condition_id | integer | null: false                    |
 | shipping_cost_id  | integer | null: false                    |
 | ship_from_id      | integer | null: false                    |
-| delivery_day_id  | integer | null: false                    |
+| delivery_day_id   | integer | null: false                    |
 | price             | integer | null: false                    |
 | user_id           | integer | null: false, foreign_key: true |
+| purchaser_id      | integer |                                |
 
 ### Association
 - belongs_to :user

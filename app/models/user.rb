@@ -10,4 +10,7 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
   validates :kanji_last_name, :kanji_first_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ }
   validates :kana_last_name, :kana_first_name, presence: true, format: { with: /\A[ァ-ン]+\z/ }
+
+  has_many :items
+  has_many :purchases
 end
