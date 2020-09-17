@@ -4,6 +4,9 @@ class PurchasesController < ApplicationController
     if @item.user_id == current_user
       redirect_to root_path
     end
+    if @item.purchaser_id.present?
+      redirect_to root_path
+    end
   end
   
   def create
