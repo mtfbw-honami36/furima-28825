@@ -16,7 +16,7 @@ RSpec.describe PurchaseAddress, type: :model do
       end
     end
     context '情報が保存できない場合' do
-      it 'クレジットカード情報がないと保存できない' do
+      it 'トークンの情報が空だと保存できない' do
         @purchase_address.token = ''
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Token can't be blank")
@@ -26,8 +26,13 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Postalcode can't be blank")
       end
-      it '郵便番号は半角数字でハイフンが含まれていないと保存できない' do
-        @purchase_address.postalCode = '１２３４５６７'
+      it '郵便番号は半角数字でないと保存できない' do
+        @purchase_address.postalCode = '１２３ー４５６７'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('Postalcode is invalid')
+      end
+      it '郵便番号はハイフンが含まれていないと保存できない' do
+        @purchase_address.postalCode = '1234567'
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('Postalcode is invalid')
       end
@@ -51,8 +56,13 @@ RSpec.describe PurchaseAddress, type: :model do
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include("Phonenumber can't be blank")
       end
-      it '電話番号は半角数字のみ11桁以内で記入されていないと保存できない' do
-        @purchase_address.phoneNumber = '１２３４５６５'
+      it '電話番号は半角数字でないと保存できない' do
+        @purchase_address.phoneNumber = '０９０１２３４５６７８'
+        @purchase_address.valid?
+        expect(@purchase_address.errors.full_messages).to include('Phonenumber is invalid')
+      end
+      it '電話番号は11桁以内でないと保存できない' do
+        @purchase_address.phoneNumber = '09012345678910'
         @purchase_address.valid?
         expect(@purchase_address.errors.full_messages).to include('Phonenumber is invalid')
       end
