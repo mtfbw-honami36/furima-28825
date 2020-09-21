@@ -7,12 +7,26 @@ class PurchasesController < ApplicationController
     if @item.purchaser_id.present?
       redirect_to root_path
     end
+    @purchase = PurchaseAddress.new
   end
-  
+
   def create
+    @purchase = PurchaseAddress.new(purchase_params)
+    if @purchase.valid?
+      pay_item
+      @purchase.save
+      return redirect_to root_path
+    else
+      @item = Item.find(params[:item_id])
+      render 'index'
+    end
   end
 
   private
+
+  def purchase_params
+    params.permit(:token, :item_id, :postalCode, :state_id, :city, :block_number, :building_name, :phoneNumber, :price).merge(user_id: current_user.id)
+  end
 
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # PAY.JPテスト秘密鍵
